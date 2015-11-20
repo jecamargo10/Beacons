@@ -2,6 +2,7 @@ package com.estimote.examples.demos;
 
 import android.app.Application;
 import com.estimote.sdk.EstimoteSDK;
+import com.facebook.FacebookSdk;
 
 /**
  * Main {@link Application} object for Demos. It configures EstimoteSDK.
@@ -17,7 +18,9 @@ public class DemosApplication extends Application {
     // Initializes Estimote SDK with your App ID and App Token from Estimote Cloud.
     // You can find your App ID and App Token in the
     // Apps section of the Estimote Cloud (http://cloud.estimote.com).
-    EstimoteSDK.initialize(this, "YOUR APP ID", "YOUR APP TOKEN");
+    EstimoteSDK.initialize(this, "javierecam22-gmail-com-s-y-lcn", "6cd68579c278d0c8e7d3d76086644cb9");
+    FacebookSdk.sdkInitialize(getApplicationContext());
+
 
     // Configure verbose debug logging.
     EstimoteSDK.enableDebugLogging(true);

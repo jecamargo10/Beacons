@@ -13,6 +13,7 @@ apply plugin: 'com.android.application'
 
 repositories {
   mavenCentral()
+
   flatDir {
     dirs '../EstimoteSDK'
   }
@@ -31,8 +32,11 @@ android {
   }
 }
 
+
+
 dependencies {
-  compile(name:'estimote-sdk', ext:'aar')
+  compile 'com.facebook.android:facebook-android-sdk:4.7.0'
+  compile(name: 'estimote-sdk', ext: 'aar')
   compile 'com.android.support:appcompat-v7:23.1.0'
 }
 

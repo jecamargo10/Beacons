@@ -9,12 +9,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.estimote.examples.demos.R;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 import com.estimote.sdk.Utils;
-import com.estimote.examples.demos.R;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +30,7 @@ import static com.estimote.sdk.BeaconManager.MonitoringListener;
  *
  * @author wiktor@estimote.com (Wiktor Gworek)
  */
-public class RetailDemo extends BaseActivity {
+public class IniciarSesionActivity extends BaseActivity {
 
   private static final int NOTIFICATION_ID = 123;
 
@@ -63,7 +63,7 @@ public class RetailDemo extends BaseActivity {
     beaconManager.setBackgroundScanPeriod(TimeUnit.SECONDS.toMillis(1), 0);
 
 
-      RetailDemo jesus = this;
+      IniciarSesionActivity jesus = this;
 
     Log.e("My app", "inicio ciclo");
 
@@ -229,14 +229,14 @@ public class RetailDemo extends BaseActivity {
 
 
 
-    Intent notifyIntent = new Intent(RetailDemo.this, RetailDemo.class);
+    Intent notifyIntent = new Intent(IniciarSesionActivity.this, IniciarSesionActivity.class);
     notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
     PendingIntent pendingIntent = PendingIntent.getActivities(
-        RetailDemo.this,
+        IniciarSesionActivity.this,
         0,
         new Intent[]{notifyIntent},
         PendingIntent.FLAG_UPDATE_CURRENT);
-    Notification notification = new Notification.Builder(RetailDemo.this)
+    Notification notification = new Notification.Builder(IniciarSesionActivity.this)
         .setSmallIcon(R.drawable.beacon_gray)
         .setContentTitle("Notify Demo")
         .setContentText(msg)

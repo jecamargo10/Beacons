@@ -33,11 +33,7 @@ public class AllDemosActivity extends AppCompatActivity {
         startListBeaconsActivity(RetailDemo.class.getName());
       }
     });
-    findViewById(R.id.notify_demo_button).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        startListBeaconsActivity(NotifyDemoActivity.class.getName());
-      }
-    });
+
 
     findViewById(R.id.characteristics_demo_button).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -51,33 +47,11 @@ public class AllDemosActivity extends AppCompatActivity {
       }
     });
 
-    findViewById(R.id.eddystone_demo_button).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(AllDemosActivity.this, ListEddystoneActivity.class);
-        intent.putExtra(ListEddystoneActivity.EXTRAS_TARGET_ACTIVITY, EddystoneDemoActivity.class.getName());
-        startActivity(intent);
-      }
-    });
-
-    findViewById(R.id.nearables_demo_button).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        Intent intent = new Intent(AllDemosActivity.this, ListNearablesActivity.class);
-        intent.putExtra(ListNearablesActivity.EXTRAS_TARGET_ACTIVITY, NearablesDemoActivity.class.getName());
-        startActivity(intent);
-      }
-    });
 
 
 
 
 
-
-
-    findViewById(R.id.sensors_demo_button).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        startListBeaconsActivity(SensorsActivity.class.getName());
-      }
-    });
   }
 
   private void startListBeaconsActivity(String extra) {
