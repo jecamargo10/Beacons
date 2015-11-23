@@ -3,8 +3,7 @@ package com.estimote.examples.demos.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,16 +31,16 @@ public class FacebookLoginActivity extends Fragment {
   private TextView textDetails;
   private ProfileTracker profileTracker;
   private  AccessTokenTracker tracker;
+ private Profile profile;
 
 
 
-
-  private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>()
+    private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>()
   {
     @Override
     public void onSuccess(LoginResult loginResult) {
-      AccessToken accessToken = loginResult.getAccessToken();
-      Profile profile = Profile.getCurrentProfile();
+        AccessToken accessToken = loginResult.getAccessToken();
+       profile = Profile.getCurrentProfile();
       if(profile != null)
       {
 
@@ -63,8 +62,10 @@ public class FacebookLoginActivity extends Fragment {
 
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState)
+    {
         setupLoginButton(view);
+
     }
 
 
@@ -89,8 +90,10 @@ public class FacebookLoginActivity extends Fragment {
 
     tracker.startTracking();
     profileTracker.startTracking();
-  }
 
+
+
+  }
 
 
 
@@ -104,11 +107,24 @@ public class FacebookLoginActivity extends Fragment {
 
 
 
+
     private void setupLoginButton(View view) {
-        LoginButton mButtonLogin = (LoginButton) view.findViewById(R.id.login_button);
+
+        View p = (View) view.getRootView();
+        LoginButton mButtonLogin = (LoginButton) p.findViewById(R.id.login_button);
+
+
+        Log.e("Acceso facebook =", view.toString());
+
+
+        Log.e("ex =", mButtonLogin.toString());
+
+
+
         mButtonLogin.setFragment(this);
         mButtonLogin.setReadPermissions("user_friends");
         mButtonLogin.registerCallback(callbackManager, callback);
+
     }
 
 
@@ -118,6 +134,8 @@ public class FacebookLoginActivity extends Fragment {
   {
     super.onActivityResult(requestCode, resultCode, data);
     callbackManager.onActivityResult(requestCode, resultCode, data);
+
+
   }
 
 
@@ -130,6 +148,13 @@ public class FacebookLoginActivity extends Fragment {
     profileTracker.stopTracking();
 
   }
+
+    public void setID()
+    {
+
+
+
+    }
 
 
 

@@ -49,10 +49,7 @@
         </activity>
 
 
-        <activity
-            android:name=".activities.facebook"
-            android:label="asd"
-            android:screenOrientation="portrait"/>
+
 
     <activity
             android:name=".activities.AllDemosActivity"

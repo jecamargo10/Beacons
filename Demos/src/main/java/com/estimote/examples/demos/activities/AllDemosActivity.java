@@ -52,6 +52,7 @@ public class AllDemosActivity extends AppCompatActivity {
 
 
 
+
   }
 
   private void startListBeaconsActivity(String extra) {

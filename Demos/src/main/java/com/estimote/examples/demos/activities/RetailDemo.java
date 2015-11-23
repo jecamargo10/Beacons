@@ -9,12 +9,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.estimote.examples.demos.R;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 import com.estimote.sdk.Utils;
-import com.estimote.examples.demos.R;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -90,7 +90,7 @@ public class RetailDemo extends BaseActivity {
                                   Beacon prubea = finalFoundBeacon;
                                   double x = Utils.computeAccuracy(prubea);
                                   Log.e("My app", String.valueOf(x));
-                                  if (x < 1) {
+                                  if (x < 3) {
                                       Log.e("My app", "area");
 
 

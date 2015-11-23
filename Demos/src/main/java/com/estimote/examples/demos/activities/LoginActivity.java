@@ -1,17 +1,13 @@
 package com.estimote.examples.demos.activities;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
 import com.estimote.examples.demos.R;
-import com.facebook.login.widget.LoginButton;
 
 /**
  * Shows all available demos.
@@ -23,11 +19,6 @@ public class LoginActivity extends AppCompatActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.login);
-
-    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    toolbar.setTitle(getTitle());
-
-
 
 
 
@@ -44,9 +35,43 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    final FacebookLoginActivity asd = new FacebookLoginActivity();
+    findViewById(R.id.login_button).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+
+        Log.e("Acceso facebook =", "Leego");
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+// Replace the contents of the container with the new fragment
+        ft.replace(R.id.face_layout, asd);
+// or ft.add(R.id.your_placeholder, new FooFragment());
+// Complete the changes added above
+        ft.commit();
+
+
+
+
+
+        startListBeaconsActivity(UpdateDemoActivity.class.getName());
+        Intent intent = new Intent(v.getContext(), AllDemosActivity.class);
+        startActivity(intent);
+
+
+
+
+
+
+      }
+    });
+
+
+
 
 
   }
+
+
 
   private void startListBeaconsActivity(String extra) {
     Intent intent = new Intent(LoginActivity.this, ListBeaconsActivity.class);

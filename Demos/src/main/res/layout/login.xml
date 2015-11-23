@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-  <include layout="@layout/toolbar" android:id="@+id/toolbar" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="425dp"
@@ -25,26 +23,36 @@
     </RelativeLayout>
 
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:layout_weight="0.21" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <FrameLayout
+            android:id="@+id/face_layout"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:text="Sign up"
-        android:id="@+id/login"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_centerHorizontal="true" />
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="315dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:layout_weight="0.21" />
+        </FrameLayout>
 
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="Sign up"
+            android:id="@+id/login"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/face_layout"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 
 </LinearLayout>
