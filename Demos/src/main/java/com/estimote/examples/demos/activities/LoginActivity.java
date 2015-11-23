@@ -1,12 +1,17 @@
 package com.estimote.examples.demos.activities;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.estimote.examples.demos.R;
+import com.facebook.login.widget.LoginButton;
 
 /**
  * Shows all available demos.
@@ -22,10 +27,14 @@ public class LoginActivity extends AppCompatActivity {
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     toolbar.setTitle(getTitle());
 
-    findViewById(R.id.login).setOnClickListener(new View.OnClickListener()
-    {
-      @Override public void onClick(View v)
-      {
+
+
+
+
+
+    findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
         startListBeaconsActivity(UpdateDemoActivity.class.getName());
         Intent intent = new Intent(v.getContext(), AllDemosActivity.class);
         startActivity(intent);
@@ -33,7 +42,9 @@ public class LoginActivity extends AppCompatActivity {
       }
     });
 
-  
+
+
+
 
   }
 
