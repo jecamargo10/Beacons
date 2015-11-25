@@ -31,7 +31,6 @@ public class FacebookLoginActivity extends Fragment {
   private TextView textDetails;
   private ProfileTracker profileTracker;
   private  AccessTokenTracker tracker;
- private Profile profile;
 
 
 
@@ -40,7 +39,7 @@ public class FacebookLoginActivity extends Fragment {
     @Override
     public void onSuccess(LoginResult loginResult) {
         AccessToken accessToken = loginResult.getAccessToken();
-       profile = Profile.getCurrentProfile();
+        Profile profile = Profile.getCurrentProfile();
       if(profile != null)
       {
 
@@ -144,6 +143,7 @@ public class FacebookLoginActivity extends Fragment {
   public void onStop()
   {
     super.onStop();
+
     tracker.stopTracking();
     profileTracker.stopTracking();
 
